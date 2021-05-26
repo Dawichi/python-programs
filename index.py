@@ -3,10 +3,11 @@ from programs import mad_libs
 from programs import num_guess
 from programs import rock_paper
 from programs import binary_search
+from programs import dice_roll
 
-def start_game():
-	wanna_play = True
-	while wanna_play:
+def start():
+	alive = True
+	while alive:
 		os.system('cls' if os.name=='nt' else 'clear')
 		print('╔═══════════════════════════════════╗')
 		print('║     Welcome to programs menu!     ║')
@@ -15,6 +16,7 @@ def start_game():
 		print('║     π 2. Number guessing          ║')
 		print('║     X 3. Rock Paper Scissors      ║')
 		print('║     O 4. Binary Search            ║')
+		print('║     ∷ 5. Dice roll                ║')
 		print('╚═══════════════════════════════════╝')
 		print('Here you can pick between the programs available!')
 
@@ -37,6 +39,10 @@ def start_game():
 				valid = True
 				binary_search()
 				break
+			if program == '5':
+				valid = True
+				dice_roll()
+				break
 			if program == 'exit':
 				valid = True
 				break
@@ -45,14 +51,14 @@ def start_game():
 			print('There is not any program assigned to that number :(')
 			print('Please, try again')
 		
-		print('END! \n \n \nPress ENTER to go back to programs menu')
+		print('\nEND! \n \n \nPress ENTER to go back to programs menu')
 		play_again = input("Do you wanna exit? (Type 'yes' to exit): ")
 		print()
 		if (play_again.lower() == "yes") | (play_again.lower() =="exit"):
 			print("That's cool, have a good day!")
-			wanna_play = False
+			alive = False
 			break
 		
 
 if __name__ == '__main__':
-    start_game()
+    start()
